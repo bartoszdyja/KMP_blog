@@ -11,17 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150205221218) do
+ActiveRecord::Schema.define(version: 20150211144859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "links", force: :cascade do |t|
-    t.string   "title"
-    t.string   "url"
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "body"
+    t.integer  "link_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "links", force: :cascade do |t|
+    t.string   "title"
+    t.string   "url"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "user_id"
+    t.integer  "cached_votes_score", default: 0
+  end
+
+  add_index "links", ["cached_votes_score"], name: "index_links_on_cached_votes_score", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                          null: false
