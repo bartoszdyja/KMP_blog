@@ -27,6 +27,8 @@ gem 'will_paginate', '~> 3.0.7'
 
 gem 'acts-as-taggable-on', '~> 3.5.0'
 
+gem 'bootstrap-sass', '~> 3.3.3'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

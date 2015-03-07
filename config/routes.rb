@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :blogs
-
+  root "blogs#index"
+  get 'blogs/tags/:name', to: 'blogs#show_tags', as: :tags
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
