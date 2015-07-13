@@ -1,0 +1,10 @@
+<% if current_user %>
+  <%= "Welcome #{current_user.name}" %>
+  <%= link_to 'Logout', signout_path %>
+<% else %>
+  <%= link_to "Sign in with Facebook", "/auth/facebook"%>
+<% end %>
+
+<div class="container-fluid" ng-app="myApp">
+  <a ng-href="/auth/facebook">Login</a>
+</div>

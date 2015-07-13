@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
-  get 'blogs/categories', to: 'blogs#categories'
-  resources :blogs
-  root "blogs#index"
-  get 'blogs/tags/:name', to: 'blogs#show_tags', as: :tags
+  
+  get '/auth/:provider/callback' => 'sessions#create'
+
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+
+  root 'sessions#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
